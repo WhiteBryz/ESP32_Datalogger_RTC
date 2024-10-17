@@ -1,0 +1,191 @@
+{
+    "version": 1,
+    "author": "Anonymous maker",
+    "editor": "wokwi",
+    "parts": [
+        {
+            "type": "board-esp32-devkit-c-v4",
+            "id": "esp",
+            "top": -76.8,
+            "left": 43.24,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-lcd1602",
+            "id": "lcd1",
+            "top": -70.4,
+            "left": 188,
+            "attrs": {
+                "pins": "i2c"
+            }
+        },
+        {
+            "type": "wokwi-ds1307",
+            "id": "rtc1",
+            "top": -197.4,
+            "left": 38.5,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-microsd-card",
+            "id": "sd1",
+            "top": 163.43,
+            "left": -115.13,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-gnd",
+            "id": "gnd1",
+            "top": 105.6,
+            "left": -10.2,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-vcc",
+            "id": "vcc1",
+            "top": 269.56,
+            "left": -9.6,
+            "attrs": {}
+        }
+    ],
+    "connections": [
+        [
+            "esp:TX",
+            "$serialMonitor:RX",
+            "",
+            []
+        ],
+        [
+            "esp:RX",
+            "$serialMonitor:TX",
+            "",
+            []
+        ],
+        [
+            "lcd1:GND",
+            "esp:GND.2",
+            "black",
+            [
+                "h-16.67",
+                "v162.78"
+            ]
+        ],
+        [
+            "lcd1:VCC",
+            "esp:3V3",
+            "red",
+            [
+                "h-9.6",
+                "v-57.5",
+                "h-134.55"
+            ]
+        ],
+        [
+            "sd1:DO",
+            "esp:19",
+            "gray",
+            [
+                "h211.2",
+                "v-9.49"
+            ]
+        ],
+        [
+            "sd1:SCK",
+            "esp:18",
+            "orange",
+            [
+                "h201.6",
+                "v-172.81"
+            ]
+        ],
+        [
+            "sd1:DI",
+            "esp:23",
+            "blue",
+            [
+                "h220.8",
+                "v-0.09"
+            ]
+        ],
+        [
+            "sd1:CS",
+            "esp:5",
+            "green",
+            [
+                "h192",
+                "v0.06"
+            ]
+        ],
+        [
+            "sd1:GND",
+            "gnd1:GND",
+            "black",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "sd1:VCC",
+            "vcc1:VCC",
+            "red",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "rtc1:GND",
+            "gnd1:GND",
+            "black",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "rtc1:5V",
+            "vcc1:VCC",
+            "red",
+            [
+                "h-28.8",
+                "v431.6"
+            ]
+        ],
+        [
+            "rtc1:SDA",
+            "esp:21",
+            "cyan",
+            [
+                "h115.2",
+                "v162.9"
+            ]
+        ],
+        [
+            "rtc1:SCL",
+            "esp:22",
+            "limegreen",
+            [
+                "h124.8",
+                "v143.8"
+            ]
+        ],
+        [
+            "lcd1:SDA",
+            "esp:21",
+            "green",
+            [
+                "h-19.2",
+                "v19.4"
+            ]
+        ],
+        [
+            "lcd1:SCL",
+            "esp:22",
+            "violet",
+            [
+                "h-38.4",
+                "v-18.9",
+                "h-9.6"
+            ]
+        ]
+    ],
+    "dependencies": {}
+}
