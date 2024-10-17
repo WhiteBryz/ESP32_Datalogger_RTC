@@ -2,6 +2,7 @@
 #include <ArduinoJson.h>
 #include <SD.h>
 #include <SD_Handle.h>
+#include <LiquidCrystal_I2C.h>
 
 #define CS_PIN 5
 #define FILE_NAME "/log.json"
@@ -11,6 +12,8 @@ DS1307_RTC RTC;
 File root;
 
 SDHandle sdHandle;
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup(void)
 {
@@ -49,6 +52,9 @@ void setup(void)
     Serial.println(F("Problemas para crear el archivo"));
     return;
   }
+
+  lcd.init();
+  lcd.backlight();
 }
 
 void loop(void)
@@ -62,6 +68,15 @@ void loop(void)
 
   doc["fecha"] = RTC.format_date();
   doc["hora"] = RTC.format_time();
+  String fecha_s = doc["fecha"];
+  String hora_s = doc["hora"];
+
+  lcd.setCursor(0, 0);
+  lcd.print("Fecha:");
+  lcd.print(fecha_s);
+  lcd.setCursor(0, 1);
+  lcd.print("Hora:");
+  lcd.print(hora_s);
 
   if (serializeJson(doc, outputJson) == 0)
   {

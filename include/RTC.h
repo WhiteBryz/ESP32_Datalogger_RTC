@@ -9,7 +9,6 @@
 RTClib: Permite el uso de varios relojes del fabricante Adafruit.
 Adafruit BusIO: Es necesaria cargarla para configurar ciertos elementos de los componentes electrónicos de Adafruit.*/
 
-
 RTC_DS1307 rtc;
 
 class DS1307_RTC
@@ -18,7 +17,7 @@ class DS1307_RTC
 public:
     uint8_t hora = 0, minuto = 0, segundo = 0, dia = 0, mes = 0;
     uint16_t ano = 0;
-    String fecha = " ", tiempo = " ";
+    String fecha = "", tiempo = "";
 
 public:
     void RTC_init(void);
